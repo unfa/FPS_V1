@@ -1,0 +1,185 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Assets/Characters/Player/Player.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Characters/Player/GroundArea.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Characters/Player/Hand.gd" type="Script" id=3]
+[ext_resource path="res://Assets/Weapons/Gun/Gun.tscn" type="PackedScene" id=4]
+
+[sub_resource type="CapsuleShape" id=1]
+
+radius = 0.4
+height = 1.0
+
+[sub_resource type="CapsuleMesh" id=2]
+
+custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
+radius = 0.4
+mid_height = 1.0
+radial_segments = 64
+rings = 8
+
+[sub_resource type="SphereShape" id=3]
+
+radius = 0.35
+
+[sub_resource type="Animation" id=4]
+
+resource_name = "BreatheBob"
+length = 3.0
+loop = true
+step = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.25, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 1.54744, 0 ), Vector3( 0, 1.52415, 0 ), Vector3( 0, 1.54744, 0 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+
+length = 0.5
+loop = true
+step = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 1.54744, 0 ), Vector3( 0, 1.62981, 0 ), Vector3( 0, 1.54744, 0 ) ]
+}
+
+[node name="Player" type="KinematicBody" index="0"]
+
+input_ray_pickable = true
+input_capture_on_drag = false
+collision_layer = 1
+collision_mask = 1
+axis_lock_linear_x = false
+axis_lock_linear_y = false
+axis_lock_linear_z = false
+axis_lock_angular_x = false
+axis_lock_angular_y = false
+axis_lock_angular_z = false
+collision/safe_margin = 0.001
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+walk_speed = 350
+run_speed = 750
+jump_velocity = 500
+gravity_acceleration = 1400
+terminal_velocity = 2500
+air_control = 0.025
+ground_control = 0.5
+
+[node name="Camera" type="Camera" parent="." index="0"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.54498, 0 )
+keep_aspect = 1
+cull_mask = 1048575
+environment = null
+h_offset = 0.0
+v_offset = 0.0
+doppler_tracking = 0
+projection = 0
+current = true
+fov = 70.0
+size = 1.0
+near = 0.05
+far = 100.0
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape" type="CollisionShape" parent="." index="1"]
+
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0.904688, 0 )
+shape = SubResource( 1 )
+disabled = false
+_sections_unfolded = [ "Transform" ]
+
+[node name="MeshInstance" type="MeshInstance" parent="." index="2"]
+
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0.904688, 0 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 2 )
+skeleton = NodePath("..")
+material/0 = null
+
+[node name="GroundArea" type="Area" parent="." index="3"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, -0.144185, 0 )
+input_ray_pickable = false
+input_capture_on_drag = false
+space_override = 0
+gravity_point = false
+gravity_distance_scale = 0.0
+gravity_vec = Vector3( 0, -1, 0 )
+gravity = 9.8
+linear_damp = 0.1
+angular_damp = 1.0
+priority = 0.0
+monitoring = true
+monitorable = false
+collision_layer = 0
+collision_mask = 1
+audio_bus_override = false
+audio_bus_name = "Master"
+reverb_bus_enable = false
+reverb_bus_name = "Master"
+reverb_bus_amount = 0.0
+reverb_bus_uniformity = 0.0
+script = ExtResource( 2 )
+_sections_unfolded = [ "Collision" ]
+colliding = -1
+
+[node name="CollisionShape" type="CollisionShape" parent="GroundArea" index="0"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.62138e-08, -0.467797 )
+shape = SubResource( 3 )
+disabled = false
+_sections_unfolded = [ "Transform" ]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4"]
+
+root_node = NodePath("../Camera")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 2048.0
+playback_speed = 1.0
+anims/BreatheBob = SubResource( 4 )
+anims/WalkBob = SubResource( 5 )
+blend_times = [  ]
+_sections_unfolded = [ "Pause", "Playback Options" ]
+
+[node name="Hand" type="Spatial" parent="." index="5"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.296632, 1.11552, -0.212087 )
+script = ExtResource( 3 )
+
+[node name="Gun" parent="Hand" index="0" instance=ExtResource( 4 )]
+
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0.0256847, -0.0427465, -0.0370259 )
+
+[connection signal="body_entered" from="GroundArea" to="GroundArea" method="_on_GroundArea_body_entered"]
+
+[connection signal="body_exited" from="GroundArea" to="GroundArea" method="_on_GroundArea_body_exited"]
+
+
