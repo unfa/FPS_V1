@@ -5,9 +5,13 @@ export var walk_speed = 350
 export var run_speed = 750
 export var jump_velocity = 500
 export var gravity_acceleration = 1400
-export var terminal_velocity = 2500
+#export var terminal_velocity = 2500
 export var air_control = 0.025
 export var ground_control = 0.5
+
+export var mouselook_speed = 400
+export var mouselook_pitch_limit = 1.4
+
 var current_control = ground_control
 
 var walking = false
@@ -21,20 +25,31 @@ func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
 	$AnimationPlayer.play("BreatheBob")
-	pass
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	
+func _input(event):
+	
+	# mouselook
+	if event is InputEventMouseMotion:
+		rotate_y(event.relative[0] / - mouselook_speed )
+		$Camera.rotate_x(event.relative[1] / - mouselook_speed )
+		if $Camera.rotation[0] < - mouselook_pitch_limit:
+			$Camera.rotation[0] = -mouselook_pitch_limit
+		
+		if $Camera.rotation[0] > mouselook_pitch_limit:
+			$Camera.rotation[0] = mouselook_pitch_limit
 
 func _process(delta):
 #	# Called every frame. Delta is time since last frame.
 #	# Update game logic here.
 	#print(Input.get_last_mouse_speed())
 	
+	# toggle flashlight
 	if Input.is_action_just_pressed("control_flashlight"):
 		if $LeftHand/Flashlight.visible:
 			$LeftHand/Flashlight.hide()
 		else:
 			$LeftHand/Flashlight.show()
-	
-	pass
 
 func _physics_process(delta):
 	
@@ -85,18 +100,17 @@ func _physics_process(delta):
 		movement.y = jump_velocity
 	
 	# make sure we don't cross terminal velocity when falling
-	if movement.y < -terminal_velocity:
-		movement.y = -terminal_velocity
+	#if movement.y < -terminal_velocity:
+	#	movement.y = -terminal_velocity
 		
-	# execute the movement vector
-	self.move_and_slide(movement*delta)
-	
-	# animations
-	
-	#play view bobbin animation
-
-	
 		
+	# apply the movement vector
+	#print(movement)
+	
+	self.move_and_slide((to_global(movement) - translation ) * delta)
+	
+	# camera movement animations:
+	
 	#if walking:
 	#	$AnimationPlayer.play("WalkBob")
 	#else:

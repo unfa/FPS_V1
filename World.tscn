@@ -481,5 +481,7 @@ disabled = false
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.00455, 6.07305 )
 air_control = 0.05
 ground_control = 0.9
+mouselook_speed = 400
+mouselook_pitch_limit = 1.4
 
 
