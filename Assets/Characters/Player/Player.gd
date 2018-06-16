@@ -26,8 +26,14 @@ func _ready():
 func _process(delta):
 #	# Called every frame. Delta is time since last frame.
 #	# Update game logic here.
-	print(Input.get_last_mouse_speed())
-
+	#print(Input.get_last_mouse_speed())
+	
+	if Input.is_action_just_pressed("control_flashlight"):
+		if $LeftHand/Flashlight.visible:
+			$LeftHand/Flashlight.hide()
+		else:
+			$LeftHand/Flashlight.show()
+	
 	pass
 
 func _physics_process(delta):

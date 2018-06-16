@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Assets/Characters/Player/Player.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Characters/Player/GroundArea.gd" type="Script" id=2]
-[ext_resource path="res://Assets/Characters/Player/Hand.gd" type="Script" id=3]
-[ext_resource path="res://Assets/Weapons/Gun/Gun.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Assets/Characters/Player/jump.ogg" type="AudioStream" id=2]
+[ext_resource path="res://Assets/Characters/Player/GroundArea.gd" type="Script" id=3]
+[ext_resource path="res://Assets/Characters/Player/Hand.gd" type="Script" id=4]
+[ext_resource path="res://Assets/Weapons/Gun/Gun.tscn" type="PackedScene" id=5]
 
 [sub_resource type="CapsuleShape" id=1]
 
@@ -84,6 +85,7 @@ ground_control = 0.5
 
 [node name="Camera" type="Camera" parent="." index="0"]
 
+editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.54498, 0 )
 keep_aspect = 1
 cull_mask = 1048575
@@ -98,6 +100,26 @@ size = 1.0
 near = 0.05
 far = 100.0
 _sections_unfolded = [ "Transform" ]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Camera" index="0"]
+
+stream = ExtResource( 2 )
+attenuation_model = 0
+unit_db = 0.0
+unit_size = 5.0
+max_db = 3.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 0.0
+out_of_range_mode = 0
+bus = "Master"
+area_mask = 1
+emission_angle_enabled = false
+emission_angle_degrees = 45.0
+emission_angle_filter_attenuation_db = -12.0
+attenuation_filter_cutoff_hz = 5000.0
+attenuation_filter_db = -24.0
+doppler_tracking = 0
 
 [node name="CollisionShape" type="CollisionShape" parent="." index="1"]
 
@@ -146,7 +168,7 @@ reverb_bus_enable = false
 reverb_bus_name = "Master"
 reverb_bus_amount = 0.0
 reverb_bus_uniformity = 0.0
-script = ExtResource( 2 )
+script = ExtResource( 3 )
 _sections_unfolded = [ "Collision" ]
 colliding = -1
 
@@ -169,14 +191,40 @@ anims/WalkBob = SubResource( 5 )
 blend_times = [  ]
 _sections_unfolded = [ "Pause", "Playback Options" ]
 
-[node name="Hand" type="Spatial" parent="." index="5"]
+[node name="RightHand" type="Spatial" parent="." index="5"]
 
+editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.296632, 1.11552, -0.212087 )
-script = ExtResource( 3 )
+script = ExtResource( 4 )
 
-[node name="Gun" parent="Hand" index="0" instance=ExtResource( 4 )]
+[node name="Gun" parent="RightHand" index="0" instance=ExtResource( 5 )]
 
 transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0.0256847, -0.0427465, -0.0370259 )
+
+[node name="LeftHand" type="Spatial" parent="." index="6"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.62288, 0.963999, 0 )
+
+[node name="Flashlight" type="SpotLight" parent="LeftHand" index="0"]
+
+layers = 1
+light_color = Color( 1, 1, 1, 1 )
+light_energy = 1.0
+light_indirect_energy = 1.0
+light_negative = false
+light_specular = 0.5
+light_bake_mode = 1
+light_cull_mask = -1
+shadow_enabled = false
+shadow_color = Color( 0, 0, 0, 1 )
+shadow_bias = 0.15
+shadow_contact = 0.0
+shadow_reverse_cull_face = false
+editor_only = false
+spot_range = 20.2461
+spot_attenuation = 1.0
+spot_angle = 24.5221
+spot_angle_attenuation = 1.0
 
 [connection signal="body_entered" from="GroundArea" to="GroundArea" method="_on_GroundArea_body_entered"]
 

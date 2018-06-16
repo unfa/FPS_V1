@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Assets/Weapons/Gun/Gun.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Objects/Effects/Smoke/Smoke 01/Smoke 01.png" type="Texture" id=2]
@@ -87,11 +87,63 @@ tracks/5/keys = {
 [sub_resource type="CylinderMesh" id=2]
 
 custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
-top_radius = 0.1
-bottom_radius = 0.1
+top_radius = 0.05
+bottom_radius = 0.05
 height = 1.0
 radial_segments = 32
 rings = 1
+
+[sub_resource type="SpatialMaterial" id=10]
+
+render_priority = 0
+flags_transparent = false
+flags_unshaded = false
+flags_vertex_lighting = false
+flags_no_depth_test = false
+flags_use_point_size = false
+flags_world_triplanar = false
+flags_fixed_size = false
+flags_albedo_tex_force_srgb = false
+vertex_color_use_as_albedo = false
+vertex_color_is_srgb = false
+params_diffuse_mode = 0
+params_specular_mode = 0
+params_blend_mode = 0
+params_cull_mode = 0
+params_depth_draw_mode = 0
+params_line_width = 1.0
+params_point_size = 1.0
+params_billboard_mode = 0
+params_grow = false
+params_use_alpha_scissor = false
+albedo_color = Color( 1, 1, 1, 1 )
+metallic = 1.0
+metallic_specular = 0.5
+metallic_texture_channel = 0
+roughness = 0.0
+roughness_texture_channel = 0
+emission_enabled = false
+normal_enabled = false
+rim_enabled = false
+clearcoat_enabled = false
+anisotropy_enabled = false
+ao_enabled = false
+depth_enabled = false
+subsurf_scatter_enabled = false
+transmission_enabled = false
+refraction_enabled = false
+detail_enabled = false
+uv1_scale = Vector3( 1, 1, 1 )
+uv1_offset = Vector3( 0, 0, 0 )
+uv1_triplanar = false
+uv1_triplanar_sharpness = 1.0
+uv2_scale = Vector3( 1, 1, 1 )
+uv2_offset = Vector3( 0, 0, 0 )
+uv2_triplanar = false
+uv2_triplanar_sharpness = 1.0
+proximity_fade_enable = false
+distance_fade_enable = false
+_sections_unfolded = [ "Metallic" ]
 
 [sub_resource type="Curve" id=3]
 
@@ -229,7 +281,26 @@ script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 ready = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0"]
+[node name="ReflectionProbe" type="ReflectionProbe" parent="." index="0"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.57242, -0.148945 )
+visible = false
+layers = 2
+update_mode = 0
+intensity = 1.0
+max_distance = 128.0
+extents = Vector3( 0.336379, 0.757198, 0.477265 )
+origin_offset = Vector3( 0, -0.370862, -0.0439453 )
+box_projection = true
+enable_shadows = true
+cull_mask = 1048575
+interior_enable = false
+interior_ambient_color = Color( 0, 0, 0, 1 )
+interior_ambient_energy = 1.0
+interior_ambient_contrib = 0.0
+_sections_unfolded = [ "Interior", "Visibility" ]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
 
 root_node = NodePath("..")
 autoplay = ""
@@ -239,11 +310,10 @@ playback_speed = 1.0
 anims/Shoot = SubResource( 1 )
 blend_times = [  ]
 
-[node name="MeshInstance" type="MeshInstance" parent="." index="1"]
+[node name="MeshInstance" type="MeshInstance" parent="." index="2"]
 
-editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.52773, 1.072e-08 )
-layers = 1
+layers = 2
 material_override = null
 cast_shadow = 1
 extra_cull_margin = 0.0
@@ -254,10 +324,103 @@ lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
 mesh = SubResource( 2 )
 skeleton = NodePath("..")
-material/0 = null
+material/0 = SubResource( 10 )
 _sections_unfolded = [ "Transform", "material" ]
 
-[node name="MuzzleParticles" type="Particles" parent="MeshInstance" index="0"]
+[node name="MeshInstance2" type="MeshInstance" parent="MeshInstance" index="0"]
+
+editor/display_folded = true
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 0, 0.177453, 0.0734152 )
+layers = 2
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 2 )
+skeleton = NodePath("..")
+material/0 = SubResource( 10 )
+_sections_unfolded = [ "Geometry", "Transform", "material" ]
+
+[node name="MuzzleParticles" type="Particles" parent="MeshInstance/MeshInstance2" index="0"]
+
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, -0.458937, 7.47704e-08 )
+layers = 1
+material_override = null
+cast_shadow = 0
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+emitting = false
+amount = 64
+lifetime = 0.06
+one_shot = true
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 1.0
+randomness = 1.0
+fixed_fps = 0
+fract_delta = true
+visibility_aabb = AABB( -4, -4, -4, 8, 8, 8 )
+local_coords = false
+draw_order = 2
+process_material = SubResource( 7 )
+draw_passes = 1
+draw_pass_1 = SubResource( 9 )
+_sections_unfolded = [ "Draw Passes", "Drawing", "Process Material", "Time", "Transform" ]
+
+[node name="OmniLight" type="OmniLight" parent="MeshInstance/MeshInstance2/MuzzleParticles" index="0"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.14753e-07, 0.352173 )
+layers = 1
+light_color = Color( 0, 0, 0, 1 )
+light_energy = 5.0
+light_indirect_energy = 1.0
+light_negative = false
+light_specular = 0.5
+light_bake_mode = 1
+light_cull_mask = -1
+shadow_enabled = true
+shadow_color = Color( 0, 0, 0, 1 )
+shadow_bias = 0.15
+shadow_contact = 0.0
+shadow_reverse_cull_face = false
+editor_only = false
+omni_range = 25.0
+omni_attenuation = 1.0
+omni_shadow_mode = 1
+omni_shadow_detail = 1
+_sections_unfolded = [ "Editor", "Light", "Omni" ]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="MeshInstance/MeshInstance2" index="1"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00528771, -0.0124103, -0.0267778 )
+stream = ExtResource( 3 )
+attenuation_model = 0
+unit_db = 0.0
+unit_size = 4.0
+max_db = 3.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 0.0
+out_of_range_mode = 0
+bus = "Master"
+area_mask = 1
+emission_angle_enabled = false
+emission_angle_degrees = 45.0
+emission_angle_filter_attenuation_db = -12.0
+attenuation_filter_cutoff_hz = 8000.0
+attenuation_filter_db = -24.0
+doppler_tracking = 0
+_sections_unfolded = [ "Attenuation Filter", "Doppler" ]
+
+[node name="MuzzleParticles" type="Particles" parent="MeshInstance" index="1"]
 
 transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, -0.458937, 7.47704e-08 )
 layers = 1
@@ -310,7 +473,7 @@ omni_shadow_mode = 1
 omni_shadow_detail = 1
 _sections_unfolded = [ "Editor", "Light", "Omni" ]
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="MeshInstance" index="1"]
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="MeshInstance" index="2"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00528771, -0.0124103, -0.0267778 )
 stream = ExtResource( 3 )
@@ -332,7 +495,7 @@ attenuation_filter_db = -24.0
 doppler_tracking = 0
 _sections_unfolded = [ "Attenuation Filter", "Doppler" ]
 
-[node name="ProjectileSpawner" type="Spatial" parent="." index="2"]
+[node name="ProjectileSpawner" type="Spatial" parent="." index="3"]
 
 transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, -1.14466, 1.11231e-07 )
 
