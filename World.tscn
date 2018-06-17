@@ -291,6 +291,8 @@ script = ExtResource( 1 )
 
 [node name="HUD" type="Node2D" parent="." index="0"]
 
+editor/display_folded = true
+
 [node name="Crosshair" type="Node2D" parent="HUD" index="0"]
 
 editor/display_folded = true
@@ -454,7 +456,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2, 0 )
 
 [node name="Cube 03" parent="Level/Geometry" index="6" instance=ExtResource( 6 )]
 
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0 )
+transform = Transform( 0.977763, 0, -0.209713, 0, 1, 0, 0.209713, 0, 0.977763, 0, 4, 0 )
 
 [node name="Cube 06" parent="Level/Geometry" index="7" instance=ExtResource( 6 )]
 
