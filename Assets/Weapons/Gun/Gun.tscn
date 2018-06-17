@@ -4,7 +4,7 @@
 [ext_resource path="res://Assets/Objects/Effects/Smoke/Smoke 01/Smoke 01.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Weapons/Gun/Sounds/Shoot 01.ogg" type="AudioStream" id=3]
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=1]
 
 resource_name = "Shoot"
 length = 1.0
@@ -83,7 +83,7 @@ tracks/5/keys = {
 "values": [ false, true ]
 }
 
-[sub_resource type="CylinderMesh" id=12]
+[sub_resource type="CylinderMesh" id=2]
 
 custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
 top_radius = 0.05
@@ -92,7 +92,7 @@ height = 1.0
 radial_segments = 32
 rings = 1
 
-[sub_resource type="SpatialMaterial" id=10]
+[sub_resource type="SpatialMaterial" id=3]
 
 render_priority = 0
 flags_transparent = false
@@ -144,37 +144,37 @@ proximity_fade_enable = false
 distance_fade_enable = false
 _sections_unfolded = [ "Metallic" ]
 
-[sub_resource type="Curve" id=3]
+[sub_resource type="Curve" id=4]
 
 min_value = 0.0
 max_value = 1.0
 bake_resolution = 100
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.354367, 0.650391 ), -1.04608, -1.04608, 0, 0, Vector2( 1, 0 ), -0.674022, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=4]
+[sub_resource type="CurveTexture" id=5]
 
 flags = 4
 width = 32
-curve = SubResource( 3 )
+curve = SubResource( 4 )
 
-[sub_resource type="Curve" id=5]
+[sub_resource type="Curve" id=6]
 
 min_value = 0.0
 max_value = 1.0
 bake_resolution = 100
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=6]
+[sub_resource type="CurveTexture" id=7]
 
 flags = 4
 width = 2048
-curve = SubResource( 5 )
+curve = SubResource( 6 )
 
-[sub_resource type="ParticlesMaterial" id=7]
+[sub_resource type="ParticlesMaterial" id=8]
 
 render_priority = 0
 trail_divisor = 5
-trail_size_modifier = SubResource( 6 )
+trail_size_modifier = SubResource( 7 )
 emission_shape = 1
 emission_sphere_radius = 0.05
 flag_align_y = false
@@ -199,7 +199,7 @@ angle = 360.0
 angle_random = 1.0
 scale = 4.0
 scale_random = 0.1
-scale_curve = SubResource( 4 )
+scale_curve = SubResource( 5 )
 color = Color( 1, 1, 1, 1 )
 hue_variation = 0.0
 hue_variation_random = 0.0
@@ -210,7 +210,7 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Scale" ]
 
-[sub_resource type="SpatialMaterial" id=8]
+[sub_resource type="SpatialMaterial" id=9]
 
 render_priority = 0
 flags_transparent = true
@@ -266,9 +266,9 @@ proximity_fade_enable = false
 distance_fade_enable = false
 _sections_unfolded = [ "Distance Fade" ]
 
-[sub_resource type="QuadMesh" id=9]
+[sub_resource type="QuadMesh" id=10]
 
-material = SubResource( 8 )
+material = SubResource( 9 )
 custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
 size = Vector2( 0.2, 0.2 )
 _sections_unfolded = [ "Resource" ]
@@ -286,12 +286,12 @@ hit_force = 20
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.57242, -0.148945 )
 visible = false
 layers = 2
-update_mode = 0
+update_mode = 1
 intensity = 1.0
 max_distance = 128.0
 extents = Vector3( 0.336379, 0.757198, 0.477265 )
 origin_offset = Vector3( 0, -0.370862, -0.0439453 )
-box_projection = true
+box_projection = false
 enable_shadows = true
 cull_mask = 1048575
 interior_enable = false
@@ -307,7 +307,7 @@ autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/Shoot = SubResource( 11 )
+anims/Shoot = SubResource( 1 )
 blend_times = [  ]
 
 [node name="MeshInstance" type="MeshInstance" parent="." index="2"]
@@ -322,9 +322,9 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 12 )
+mesh = SubResource( 2 )
 skeleton = NodePath("..")
-material/0 = SubResource( 10 )
+material/0 = SubResource( 3 )
 _sections_unfolded = [ "Transform", "material" ]
 
 [node name="MeshInstance2" type="MeshInstance" parent="MeshInstance" index="0"]
@@ -340,9 +340,9 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 12 )
+mesh = SubResource( 2 )
 skeleton = NodePath("..")
-material/0 = SubResource( 10 )
+material/0 = SubResource( 3 )
 _sections_unfolded = [ "Geometry", "Transform", "material" ]
 
 [node name="MuzzleParticles" type="Particles" parent="MeshInstance/MeshInstance2" index="0"]
@@ -370,9 +370,9 @@ fract_delta = true
 visibility_aabb = AABB( -4, -4, -4, 8, 8, 8 )
 local_coords = false
 draw_order = 2
-process_material = SubResource( 7 )
+process_material = SubResource( 8 )
 draw_passes = 1
-draw_pass_1 = SubResource( 9 )
+draw_pass_1 = SubResource( 10 )
 _sections_unfolded = [ "Draw Passes", "Drawing", "Process Material", "Time", "Transform" ]
 
 [node name="OmniLight" type="OmniLight" parent="MeshInstance/MeshInstance2/MuzzleParticles" index="0"]
@@ -445,9 +445,9 @@ fract_delta = true
 visibility_aabb = AABB( -4, -4, -4, 8, 8, 8 )
 local_coords = false
 draw_order = 2
-process_material = SubResource( 7 )
+process_material = SubResource( 8 )
 draw_passes = 1
-draw_pass_1 = SubResource( 9 )
+draw_pass_1 = SubResource( 10 )
 _sections_unfolded = [ "Draw Passes", "Drawing", "Process Material", "Time", "Transform" ]
 
 [node name="OmniLight" type="OmniLight" parent="MeshInstance/MuzzleParticles" index="0"]

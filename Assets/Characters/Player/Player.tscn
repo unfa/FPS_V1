@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Assets/Characters/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Characters/Player/jump.ogg" type="AudioStream" id=2]
@@ -42,6 +42,37 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 1.54744, 0 ), Vector3( 0, 1.52415, 0 ), Vector3( 0, 1.54744, 0 ) ]
 }
 
+[sub_resource type="Animation" id=6]
+
+resource_name = "Die"
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 1.54498, 0 ), Vector3( -0.497632, 0.353879, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( -11.351, -6.09839e-07, 45.5477 ) ]
+}
+
 [sub_resource type="Animation" id=5]
 
 length = 0.5
@@ -75,6 +106,7 @@ axis_lock_angular_z = false
 collision/safe_margin = 0.001
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
+health = 100
 walk_speed = 350
 run_speed = 750
 jump_velocity = 500
@@ -221,6 +253,7 @@ playback_process_mode = 1
 playback_default_blend_time = 2048.0
 playback_speed = 1.0
 anims/BreatheBob = SubResource( 4 )
+anims/Die = SubResource( 6 )
 anims/WalkBob = SubResource( 5 )
 blend_times = [  ]
 _sections_unfolded = [ "Pause", "Playback Options" ]

@@ -1,6 +1,8 @@
 extends KinematicBody
 
 var movement = Vector3()
+
+export var health = 100
 export var walk_speed = 350
 export var run_speed = 750
 export var jump_velocity = 500
@@ -29,27 +31,32 @@ func _ready():
 	
 func _input(event):
 	
-	# mouselook
-	if event is InputEventMouseMotion:
-		rotate_y(event.relative[0] / - mouselook_speed )
-		$Camera.rotate_x(event.relative[1] / - mouselook_speed )
-		if $Camera.rotation[0] < - mouselook_pitch_limit:
-			$Camera.rotation[0] = -mouselook_pitch_limit
-		
-		if $Camera.rotation[0] > mouselook_pitch_limit:
-			$Camera.rotation[0] = mouselook_pitch_limit
+	if health > 0:
+		# mouselook
+		if event is InputEventMouseMotion:
+			rotate_y(event.relative[0] / - mouselook_speed )
+			$Camera.rotate_x(event.relative[1] / - mouselook_speed )
+			if $Camera.rotation[0] < - mouselook_pitch_limit:
+				$Camera.rotation[0] = -mouselook_pitch_limit
+			
+			if $Camera.rotation[0] > mouselook_pitch_limit:
+				$Camera.rotation[0] = mouselook_pitch_limit
 
 func _process(delta):
 #	# Called every frame. Delta is time since last frame.
 #	# Update game logic here.
 	#print(Input.get_last_mouse_speed())
-	
-	# toggle flashlight
-	if Input.is_action_just_pressed("control_flashlight"):
-		if $Camera/LeftHand/Flashlight.visible:
-			$Camera/LeftHand/Flashlight.hide()
-		else:
-			$Camera/LeftHand/Flashlight.show()
+	if health > 0:
+		# toggle flashlight
+		if Input.is_action_just_pressed("control_flashlight"):
+			if $Camera/LeftHand/Flashlight.visible:
+				$Camera/LeftHand/Flashlight.hide()
+			else:
+				$Camera/LeftHand/Flashlight.show()
+	else: #if the player is dead:
+		$AnimationPlayer.stop()
+		$AnimationPlayer.play("Die")
+		
 
 func _physics_process(delta):
 	
@@ -68,36 +75,43 @@ func _physics_process(delta):
 	walking = false
 	
 	# front/back walking
-	if Input.is_action_pressed("move_forward"):
-		movement.z = lerp(movement.z, -walk_speed, current_control)
-		walking = true
-	elif Input.is_action_pressed("move_backward"):
-		movement.z = lerp(movement.z, walk_speed, current_control)
-		walking = true
-	else:
-		movement.z = lerp(movement.z, 0, current_control)
+	if health > 0: #if we're alive:
+		if Input.is_action_pressed("move_forward"):
+			movement.z = lerp(movement.z, -walk_speed, current_control)
+			walking = true
+		elif Input.is_action_pressed("move_backward"):
+			movement.z = lerp(movement.z, walk_speed, current_control)
+			walking = true
+		else:
+			movement.z = lerp(movement.z, 0, current_control)
+			
 		
-	
-	
-	#left/right strafing
-	if Input.is_action_pressed("move_left"):
-		movement.x = lerp(movement.x, -walk_speed, current_control)
-		walking = true
-	elif Input.is_action_pressed("move_right"):
-		movement.x = lerp(movement.x, walk_speed, current_control)
-		walking = true
-	else:
+		
+		#left/right strafing
+		if Input.is_action_pressed("move_left"):
+			movement.x = lerp(movement.x, -walk_speed, current_control)
+			walking = true
+		elif Input.is_action_pressed("move_right"):
+			movement.x = lerp(movement.x, walk_speed, current_control)
+			walking = true
+		else:
+			movement.z = lerp(movement.z, 0, current_control)
+		
+		# jump
+		if on_ground and Input.is_action_just_pressed("move_jump"):
+			movement.y = jump_velocity
+	else: #if we're dead
+		# player should stop walking
+		movement.z = lerp(movement.z, 0, current_control)
 		movement.x = lerp(movement.x, 0, current_control)
-
+		
 	
 	# gravity acceleration
 	if not on_ground:
 		movement.y -= gravity_acceleration * delta
 		walking = false
 	
-	# jump
-	if on_ground and Input.is_action_just_pressed("move_jump"):
-		movement.y = jump_velocity
+	
 	
 	# make sure we don't cross terminal velocity when falling
 	#if movement.y < -terminal_velocity:
