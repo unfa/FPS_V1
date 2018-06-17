@@ -123,7 +123,6 @@ doppler_tracking = 0
 
 [node name="RightHand" type="Spatial" parent="Camera" index="1"]
 
-editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.296632, -0.42946, -0.212087 )
 script = ExtResource( 3 )
 

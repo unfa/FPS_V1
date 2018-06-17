@@ -46,10 +46,10 @@ func _process(delta):
 	
 	# toggle flashlight
 	if Input.is_action_just_pressed("control_flashlight"):
-		if $LeftHand/Flashlight.visible:
-			$LeftHand/Flashlight.hide()
+		if $Camera/LeftHand/Flashlight.visible:
+			$Camera/LeftHand/Flashlight.hide()
 		else:
-			$LeftHand/Flashlight.show()
+			$Camera/LeftHand/Flashlight.show()
 
 func _physics_process(delta):
 	
