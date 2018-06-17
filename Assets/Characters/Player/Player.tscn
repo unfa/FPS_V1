@@ -25,7 +25,7 @@ radius = 0.35
 
 [sub_resource type="Animation" id=4]
 
-resource_name = "BreatheBob"
+resource_name = "Breathe"
 length = 3.0
 loop = true
 step = 0.25
@@ -75,6 +75,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id=5]
 
+resource_name = "Walk"
 length = 0.5
 loop = true
 step = 0.25
@@ -168,6 +169,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.62288, -0.580981, 0 )
 
 [node name="Flashlight" type="SpotLight" parent="Camera/LeftHand" index="0"]
 
+visible = false
 layers = 1
 light_color = Color( 1, 1, 1, 1 )
 light_energy = 1.0
@@ -197,6 +199,7 @@ _sections_unfolded = [ "Transform" ]
 [node name="MeshInstance" type="MeshInstance" parent="." index="2"]
 
 transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0.904688, 0 )
+visible = false
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -252,9 +255,9 @@ autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 2048.0
 playback_speed = 1.0
-anims/BreatheBob = SubResource( 4 )
+anims/Breathe = SubResource( 4 )
 anims/Die = SubResource( 6 )
-anims/WalkBob = SubResource( 5 )
+anims/Walk = SubResource( 5 )
 blend_times = [  ]
 _sections_unfolded = [ "Pause", "Playback Options" ]
 

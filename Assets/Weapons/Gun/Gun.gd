@@ -29,13 +29,13 @@ func shoot():
 		var hit_object = $ProjectileSpawner/RayCast.get_collider()
 		var hit_point = $ProjectileSpawner/RayCast.get_collision_point()
 		var hit_normal = $ProjectileSpawner/RayCast.get_collision_normal()
+		
 		print(hit_object)
 		print(hit_point)
 		print(hit_normal)
 		
 		if hit_object == null:
 			pass
-			
 		elif hit_object is RigidBody:
-			hit_object.apply_impulse(hit_point, - hit_normal * hit_force)
+			hit_object.apply_impulse(hit_point, - (hit_normal * hit_force))
 		

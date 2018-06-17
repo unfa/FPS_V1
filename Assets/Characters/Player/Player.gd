@@ -27,7 +27,7 @@ var on_ground = false
 func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
-	$AnimationPlayer.play("BreatheBob")
+	$AnimationPlayer.play("Breathe")
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
 func _input(event):
@@ -53,9 +53,9 @@ func _process(delta):
 				$Camera/LeftHand/Flashlight.hide()
 			else:
 				$Camera/LeftHand/Flashlight.show()
-	elif previous_health > 0: #if the player is dead:
-		$AnimationPlayer.stop()
-		$AnimationPlayer.play("Die")
+	elif previous_health > 0: #if the player is dead, but was alive last time this function was called...
+		$AnimationPlayer.stop() # stop the breathing animation
+		$AnimationPlayer.play("Die") # alnd play they dying animation
 	
 	previous_health = health
 		

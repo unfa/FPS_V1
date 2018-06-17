@@ -2,7 +2,7 @@
 
 [ext_resource path="res://World.gd" type="Script" id=1]
 [ext_resource path="res://Assets/HUD/Crosshair 01.svg" type="Texture" id=2]
-[ext_resource path="res://Halthbar.gd" type="Script" id=3]
+[ext_resource path="res://Healthbar.gd" type="Script" id=3]
 [ext_resource path="res://Assets/Objects/Effects/Smoke/Smoke 01/Smoke 01.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Objects/World/Ambient/Hum 01.ogg" type="AudioStream" id=5]
 [ext_resource path="res://Assets/Objects/World/Cubes/Cube 01/Cube 01.tscn" type="PackedScene" id=6]
@@ -10,13 +10,13 @@
 [ext_resource path="res://Assets/Objects/World/Floors/Floor 01/Floor 01 NOR.png" type="Texture" id=8]
 [ext_resource path="res://Assets/Characters/Player/Player.tscn" type="PackedScene" id=9]
 
-[sub_resource type="CanvasItemMaterial" id=10]
+[sub_resource type="CanvasItemMaterial" id=1]
 
 render_priority = 0
 blend_mode = 1
 light_mode = 1
 
-[sub_resource type="ProceduralSky" id=1]
+[sub_resource type="ProceduralSky" id=2]
 
 radiance_size = 4
 sky_top_color = Color( 0.641846, 0.933594, 0.91308, 1 )
@@ -37,10 +37,10 @@ sun_energy = 0.0
 texture_size = 2
 _sections_unfolded = [ "Sun" ]
 
-[sub_resource type="Environment" id=2]
+[sub_resource type="Environment" id=3]
 
 background_mode = 2
-background_sky = SubResource( 1 )
+background_sky = SubResource( 2 )
 background_sky_custom_fov = 0.0
 background_color = Color( 0, 0, 0, 1 )
 background_energy = 0.25
@@ -117,7 +117,7 @@ adjustment_contrast = 1.0
 adjustment_saturation = 1.0
 _sections_unfolded = [ "Adjustments", "Ambient Light", "Background", "SS Reflections" ]
 
-[sub_resource type="ParticlesMaterial" id=3]
+[sub_resource type="ParticlesMaterial" id=4]
 
 render_priority = 0
 trail_divisor = 1
@@ -155,7 +155,7 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Resource" ]
 
-[sub_resource type="SpatialMaterial" id=4]
+[sub_resource type="SpatialMaterial" id=5]
 
 render_priority = 0
 flags_transparent = true
@@ -208,20 +208,20 @@ proximity_fade_enable = false
 distance_fade_enable = false
 _sections_unfolded = [ "Albedo", "Distance Fade", "Parameters", "Transmission" ]
 
-[sub_resource type="QuadMesh" id=5]
+[sub_resource type="QuadMesh" id=6]
 
-material = SubResource( 4 )
+material = SubResource( 5 )
 custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
 size = Vector2( 1, 1 )
 
-[sub_resource type="PlaneMesh" id=6]
+[sub_resource type="PlaneMesh" id=7]
 
 custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
 size = Vector2( 16, 16 )
 subdivide_width = 0
 subdivide_depth = 0
 
-[sub_resource type="SpatialMaterial" id=7]
+[sub_resource type="SpatialMaterial" id=8]
 
 render_priority = 0
 flags_transparent = false
@@ -277,11 +277,11 @@ proximity_fade_enable = false
 distance_fade_enable = false
 _sections_unfolded = [ "Distance Fade", "NormalMap" ]
 
-[sub_resource type="BoxShape" id=8]
+[sub_resource type="BoxShape" id=9]
 
 extents = Vector3( 8, 1, 8 )
 
-[sub_resource type="BoxShape" id=9]
+[sub_resource type="BoxShape" id=10]
 
 extents = Vector3( 32.2876, 12.8241, 30.7704 )
 
@@ -322,7 +322,7 @@ texture = ExtResource( 2 )
 
 [node name="Halthbar" type="ProgressBar" parent="HUD" index="1"]
 
-material = SubResource( 10 )
+material = SubResource( 1 )
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -374,7 +374,7 @@ _sections_unfolded = [ "Theme" ]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Level" index="0"]
 
-environment = SubResource( 2 )
+environment = SubResource( 3 )
 
 [node name="Effects" type="Spatial" parent="Level" index="1"]
 
@@ -403,9 +403,9 @@ fract_delta = true
 visibility_aabb = AABB( -34.0373, -68.3677, -11.9284, 68.0747, 136.735, 23.8567 )
 local_coords = false
 draw_order = 2
-process_material = SubResource( 3 )
+process_material = SubResource( 4 )
 draw_passes = 1
-draw_pass_1 = SubResource( 5 )
+draw_pass_1 = SubResource( 6 )
 _sections_unfolded = [ "Draw Passes", "Process Material", "Time" ]
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Level/Effects/Particles" index="0"]
@@ -477,9 +477,9 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 6 )
+mesh = SubResource( 7 )
 skeleton = NodePath("..")
-material/0 = SubResource( 7 )
+material/0 = SubResource( 8 )
 _sections_unfolded = [ "material" ]
 
 [node name="StaticBody" type="StaticBody" parent="Level/Geometry/Plane" index="0"]
@@ -497,7 +497,7 @@ constant_angular_velocity = Vector3( 0, 0, 0 )
 [node name="CollisionShape" type="CollisionShape" parent="Level/Geometry/Plane/StaticBody" index="0"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
-shape = SubResource( 8 )
+shape = SubResource( 9 )
 disabled = false
 _sections_unfolded = [ "Transform" ]
 
@@ -560,7 +560,7 @@ _sections_unfolded = [ "Reverb Bus" ]
 [node name="CollisionShape" type="CollisionShape" parent="Level/Areas/Area" index="0"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0 )
-shape = SubResource( 9 )
+shape = SubResource( 10 )
 disabled = false
 
 [node name="Actors" type="Spatial" parent="." index="2"]
@@ -568,7 +568,6 @@ disabled = false
 [node name="Player" parent="Actors" index="0" instance=ExtResource( 9 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00454998, 6.07305 )
-health = 100
 air_control = 0.05
 ground_control = 0.9
 
