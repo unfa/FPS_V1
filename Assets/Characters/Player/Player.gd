@@ -3,6 +3,7 @@ extends KinematicBody
 var movement = Vector3()
 
 export var health = 100
+var previous_health = health
 export var walk_speed = 350
 export var run_speed = 750
 export var jump_velocity = 500
@@ -30,7 +31,6 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
 func _input(event):
-	
 	if health > 0:
 		# mouselook
 		if event is InputEventMouseMotion:
@@ -53,9 +53,11 @@ func _process(delta):
 				$Camera/LeftHand/Flashlight.hide()
 			else:
 				$Camera/LeftHand/Flashlight.show()
-	else: #if the player is dead:
+	elif previous_health > 0: #if the player is dead:
 		$AnimationPlayer.stop()
 		$AnimationPlayer.play("Die")
+	
+	previous_health = health
 		
 
 func _physics_process(delta):
