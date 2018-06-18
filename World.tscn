@@ -284,8 +284,6 @@ script = ExtResource( 1 )
 
 [node name="HUD" parent="." index="0" instance=ExtResource( 2 )]
 
-editor/display_folded = false
-
 [node name="Level" type="Spatial" parent="." index="1"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Level" index="0"]
@@ -296,7 +294,7 @@ environment = SubResource( 3 )
 
 [node name="Particles" type="Particles" parent="Level/Effects" index="0"]
 
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -8, -23 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -17, -23 )
 layers = 1
 material_override = null
 cast_shadow = 1

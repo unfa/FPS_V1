@@ -97,7 +97,7 @@ func _physics_process(delta):
 			movement.x = lerp(movement.x, walk_speed, current_control)
 			walking = true
 		else:
-			movement.z = lerp(movement.z, 0, current_control)
+			movement.x = lerp(movement.x, 0, current_control)
 		
 		# jump
 		if on_ground and Input.is_action_just_pressed("move_jump"):
