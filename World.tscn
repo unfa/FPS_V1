@@ -1,20 +1,13 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://World.gd" type="Script" id=1]
-[ext_resource path="res://Assets/HUD/Crosshair 01.svg" type="Texture" id=2]
-[ext_resource path="res://Healthbar.gd" type="Script" id=3]
-[ext_resource path="res://Assets/Objects/Effects/Smoke/Smoke 01/Smoke 01.png" type="Texture" id=4]
-[ext_resource path="res://Assets/Objects/World/Ambient/Hum 01.ogg" type="AudioStream" id=5]
-[ext_resource path="res://Assets/Objects/World/Cubes/Cube 01/Cube 01.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Assets/Objects/World/Floors/Floor 01/Floor 01 AO.png" type="Texture" id=7]
-[ext_resource path="res://Assets/Objects/World/Floors/Floor 01/Floor 01 NOR.png" type="Texture" id=8]
-[ext_resource path="res://Assets/Characters/Player/Player.tscn" type="PackedScene" id=9]
-
-[sub_resource type="CanvasItemMaterial" id=1]
-
-render_priority = 0
-blend_mode = 1
-light_mode = 1
+[ext_resource path="res://HUD.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/Objects/Effects/Smoke/Smoke 01/Smoke 01.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Objects/World/Ambient/Hum 01.ogg" type="AudioStream" id=4]
+[ext_resource path="res://Assets/Objects/World/Cubes/Cube 01/Cube 01.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/Objects/World/Floors/Floor 01/Floor 01 AO.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Objects/World/Floors/Floor 01/Floor 01 NOR.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Characters/Player/Player.tscn" type="PackedScene" id=8]
 
 [sub_resource type="ProceduralSky" id=2]
 
@@ -179,7 +172,7 @@ params_billboard_mode = 0
 params_grow = false
 params_use_alpha_scissor = false
 albedo_color = Color( 0.792969, 0.792969, 0.792969, 0.414353 )
-albedo_texture = ExtResource( 4 )
+albedo_texture = ExtResource( 3 )
 metallic = 0.0
 metallic_specular = 0.5
 metallic_texture_channel = 0
@@ -245,17 +238,17 @@ params_billboard_mode = 0
 params_grow = false
 params_use_alpha_scissor = false
 albedo_color = Color( 0.242188, 0.242188, 0.242188, 1 )
-albedo_texture = ExtResource( 7 )
+albedo_texture = ExtResource( 6 )
 metallic = 0.75
 metallic_specular = 0.5
 metallic_texture_channel = 0
 roughness = 0.25
-roughness_texture = ExtResource( 7 )
+roughness_texture = ExtResource( 6 )
 roughness_texture_channel = 4
 emission_enabled = false
 normal_enabled = true
 normal_scale = 0.5
-normal_texture = ExtResource( 8 )
+normal_texture = ExtResource( 7 )
 rim_enabled = false
 clearcoat_enabled = false
 anisotropy_enabled = false
@@ -289,88 +282,9 @@ extents = Vector3( 32.2876, 12.8241, 30.7704 )
 
 script = ExtResource( 1 )
 
-[node name="HUD" type="Node2D" parent="." index="0"]
+[node name="HUD" parent="." index="0" instance=ExtResource( 2 )]
 
-editor/display_folded = true
-
-[node name="Crosshair" type="Node2D" parent="HUD" index="0"]
-
-editor/display_folded = true
-position = Vector2( 520, 310 )
-scale = Vector2( 0.25, 0.25 )
-_sections_unfolded = [ "Transform" ]
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="HUD/Crosshair" index="0"]
-
-texture = ExtResource( 2 )
-
-[node name="Sprite2" type="Sprite" parent="HUD/Crosshair" index="1"]
-
-rotation = 1.57079
-texture = ExtResource( 2 )
-
-[node name="Sprite3" type="Sprite" parent="HUD/Crosshair" index="2"]
-
-rotation = 3.14159
-texture = ExtResource( 2 )
-
-[node name="Sprite4" type="Sprite" parent="HUD/Crosshair" index="3"]
-
-rotation = -1.5708
-texture = ExtResource( 2 )
-
-[node name="Halthbar" type="ProgressBar" parent="HUD" index="1"]
-
-material = SubResource( 1 )
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 20.0
-margin_top = 20.0
-margin_right = 260.0
-margin_bottom = 50.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 0
-min_value = 0.0
-max_value = 100.0
-step = 1.0
-page = 0.0
-value = 51.16
-exp_edit = false
-rounded = false
-percent_visible = false
-script = ExtResource( 3 )
-_sections_unfolded = [ "Material", "Percent", "Theme" ]
-
-[node name="Label" type="Label" parent="HUD/Halthbar" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 8.0
-margin_top = 9.0
-margin_right = 48.0
-margin_bottom = 23.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-text = "health"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Theme" ]
+editor/display_folded = false
 
 [node name="Level" type="Spatial" parent="." index="1"]
 
@@ -382,7 +296,7 @@ environment = SubResource( 3 )
 
 [node name="Particles" type="Particles" parent="Level/Effects" index="0"]
 
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8, -25 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -8, -23 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -412,7 +326,7 @@ _sections_unfolded = [ "Draw Passes", "Process Material", "Time" ]
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Level/Effects/Particles" index="0"]
 
-stream = ExtResource( 5 )
+stream = ExtResource( 4 )
 attenuation_model = 0
 unit_db = 0.0
 unit_size = 6.0
@@ -432,43 +346,42 @@ doppler_tracking = 0
 
 [node name="Geometry" type="Spatial" parent="Level" index="2"]
 
-[node name="Cube 01" parent="Level/Geometry" index="0" instance=ExtResource( 6 )]
+[node name="Cube 01" parent="Level/Geometry" index="0" instance=ExtResource( 5 )]
 
-[node name="Cube 04" parent="Level/Geometry" index="1" instance=ExtResource( 6 )]
+[node name="Cube 04" parent="Level/Geometry" index="1" instance=ExtResource( 5 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0 )
 
-[node name="Cube 09" parent="Level/Geometry" index="2" instance=ExtResource( 6 )]
+[node name="Cube 09" parent="Level/Geometry" index="2" instance=ExtResource( 5 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 0 )
 
-[node name="Cube 02" parent="Level/Geometry" index="3" instance=ExtResource( 6 )]
+[node name="Cube 02" parent="Level/Geometry" index="3" instance=ExtResource( 5 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0 )
 
-[node name="Cube 05" parent="Level/Geometry" index="4" instance=ExtResource( 6 )]
+[node name="Cube 05" parent="Level/Geometry" index="4" instance=ExtResource( 5 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2, 0 )
 
-[node name="Cube 08" parent="Level/Geometry" index="5" instance=ExtResource( 6 )]
+[node name="Cube 08" parent="Level/Geometry" index="5" instance=ExtResource( 5 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2, 0 )
 
-[node name="Cube 03" parent="Level/Geometry" index="6" instance=ExtResource( 6 )]
+[node name="Cube 03" parent="Level/Geometry" index="6" instance=ExtResource( 5 )]
 
 transform = Transform( 0.977763, 0, -0.209713, 0, 1, 0, 0.209713, 0, 0.977763, 0, 4, 0 )
 
-[node name="Cube 06" parent="Level/Geometry" index="7" instance=ExtResource( 6 )]
+[node name="Cube 06" parent="Level/Geometry" index="7" instance=ExtResource( 5 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 4, 0 )
 
-[node name="Cube 07" parent="Level/Geometry" index="8" instance=ExtResource( 6 )]
+[node name="Cube 07" parent="Level/Geometry" index="8" instance=ExtResource( 5 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 4, 0 )
 
 [node name="Plane" type="MeshInstance" parent="Level/Geometry" index="9"]
 
-editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
 layers = 1
 material_override = null
@@ -505,7 +418,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="DirectionalLight" type="DirectionalLight" parent="Level/Geometry/Plane" index="1"]
 
-transform = Transform( -0.173648, -0.951251, 0.254887, 0, 0.258819, 0.965926, -0.984808, 0.167731, -0.0449435, 4, 12, 0 )
+transform = Transform( -0.173648, -0.951251, 0.254887, 0.336824, 0.185843, 0.923045, -0.925417, 0.246137, 0.288133, 4, 12, 0 )
 layers = 1
 light_color = Color( 1, 1, 1, 1 )
 light_energy = 1.0
@@ -567,10 +480,11 @@ disabled = false
 
 [node name="Actors" type="Spatial" parent="." index="2"]
 
-[node name="Player" parent="Actors" index="0" instance=ExtResource( 9 )]
+[node name="Player" parent="Actors" index="0" instance=ExtResource( 8 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00454998, 6.07305 )
 air_control = 0.05
 ground_control = 0.9
 
 
+[editable path="HUD"]
