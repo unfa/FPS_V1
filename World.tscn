@@ -11,22 +11,22 @@
 [sub_resource type="ProceduralSky" id=1]
 
 radiance_size = 4
-sky_top_color = Color( 0.641846, 0.933594, 0.91308, 1 )
-sky_horizon_color = Color( 0.220551, 0.308827, 0.386719, 1 )
+sky_top_color = Color( 0.225586, 0.328125, 0.320915, 1 )
+sky_horizon_color = Color( 0.378906, 0.334388, 0.216095, 1 )
 sky_curve = 0.25
 sky_energy = 1.5
 ground_bottom_color = Color( 0.0162506, 0.0374222, 0.0585938, 1 )
 ground_horizon_color = Color( 0.21759, 0.233579, 0.242188, 1 )
 ground_curve = 0.01
 ground_energy = 1.0
-sun_color = Color( 1, 1, 1, 1 )
+sun_color = Color( 0.617188, 0.973083, 1, 1 )
 sun_latitude = 81.0
 sun_longitude = 180.0
 sun_angle_min = 1.0
 sun_angle_max = 100.0
-sun_curve = 0.05
-sun_energy = 1.0
-texture_size = 0
+sun_curve = 0.0143589
+sun_energy = 0.1
+texture_size = 1
 _sections_unfolded = [ "Sky", "Sun", "Texture" ]
 
 [sub_resource type="Environment" id=2]
@@ -35,7 +35,7 @@ background_mode = 2
 background_sky = SubResource( 1 )
 background_sky_custom_fov = 0.0
 background_color = Color( 0, 0, 0, 1 )
-background_energy = 0.25
+background_energy = 1.0
 background_canvas_max_layer = 0
 ambient_light_color = Color( 0, 0, 0, 1 )
 ambient_light_energy = 1.0
@@ -395,7 +395,7 @@ disabled = false
 
 [node name="DirectionalLight" type="DirectionalLight" parent="Level/Ligths" index="0"]
 
-transform = Transform( 0.256288, -0.966598, -0.00203383, 0.139503, 0.0349071, 0.989606, -0.956481, -0.253908, 0.143789, 0, 20, 0 )
+transform = Transform( 0.256262, -0.966605, -0.00221161, 0.151756, 0.0379729, 0.987689, -0.95462, -0.253443, 0.156419, 0, 20, 0 )
 layers = 1
 light_color = Color( 1, 1, 1, 1 )
 light_energy = 0.25
@@ -419,7 +419,7 @@ directional_shadow_normal_bias = 0.8
 directional_shadow_bias_split_scale = 0.25
 directional_shadow_depth_range = 0
 directional_shadow_max_distance = 200.0
-_sections_unfolded = [ "Light" ]
+_sections_unfolded = [ "Light", "Transform" ]
 
 [node name="OmniLight" type="OmniLight" parent="Level/Ligths" index="1"]
 
