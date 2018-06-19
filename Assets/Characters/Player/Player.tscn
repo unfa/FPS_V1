@@ -42,7 +42,7 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 1.54744, 0 ), Vector3( 0, 1.52415, 0 ), Vector3( 0, 1.54744, 0 ) ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=5]
 
 resource_name = "Die"
 length = 1.0
@@ -73,9 +73,8 @@ tracks/1/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( -11.351, -6.09839e-07, 45.5477 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=6]
 
-resource_name = "Walk"
 length = 0.5
 loop = true
 step = 0.25
@@ -131,7 +130,7 @@ current = true
 fov = 70.0
 size = 1.0
 near = 0.05
-far = 100.0
+far = 1500.0
 _sections_unfolded = [ "Transform" ]
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Camera" index="0"]
@@ -256,8 +255,8 @@ playback_process_mode = 1
 playback_default_blend_time = 2048.0
 playback_speed = 1.0
 anims/Breathe = SubResource( 4 )
-anims/Die = SubResource( 6 )
-anims/Walk = SubResource( 5 )
+anims/Die = SubResource( 5 )
+anims/Walk = SubResource( 6 )
 blend_times = [  ]
 _sections_unfolded = [ "Pause", "Playback Options" ]
 

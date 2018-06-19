@@ -16,5 +16,6 @@ func _ready():
 
 
 func _on_Button2_pressed():
+	$"../../Bloodscreen".hide()
 	get_tree().reload_current_scene() # reset the game
 	get_tree().paused = false # un-pause the game

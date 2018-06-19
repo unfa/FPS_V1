@@ -37,6 +37,6 @@ game_menu=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name"
 
 threads/thread_model=2
 quality/filters/anisotropic_filter_level=8
-quality/reflections/atlas_size=1024
+quality/reflections/atlas_size=4096
 quality/filters/msaa=2
 environment/default_environment="res://default_env.tres"
