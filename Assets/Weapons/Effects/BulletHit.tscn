@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://Assets/Objects/Effects/Smoke/Smoke 01/Smoke 01.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Weapons/Effects/BulletHit.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Objects/Effects/Smoke/Smoke 01/Smoke 01.png" type="Texture" id=2]
 
 [sub_resource type="Gradient" id=1]
 
@@ -91,7 +92,7 @@ particles_anim_h_frames = 1
 particles_anim_v_frames = 1
 particles_anim_loop = 0
 albedo_color = Color( 1, 1, 1, 1 )
-albedo_texture = ExtResource( 1 )
+albedo_texture = ExtResource( 2 )
 metallic = 0.0
 metallic_specular = 0.5
 metallic_texture_channel = 0
@@ -128,6 +129,7 @@ size = Vector2( 1, 1 )
 
 [node name="BulletHit" type="Spatial" index="0"]
 
+script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Particles" type="Particles" parent="." index="0"]
@@ -141,10 +143,10 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-emitting = true
+emitting = false
 amount = 64
 lifetime = 1.0
-one_shot = false
+one_shot = true
 preprocess = 0.0
 speed_scale = 1.0
 explosiveness = 1.0
