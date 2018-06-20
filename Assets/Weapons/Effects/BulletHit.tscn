@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Assets/Weapons/Effects/BulletHit.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Objects/Effects/Smoke/Smoke 01/Smoke 01.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Weapons/Effects/Timer.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Objects/Effects/Smoke/Smoke 01/Smoke 01.png" type="Texture" id=3]
 
 [sub_resource type="Gradient" id=1]
 
@@ -92,7 +93,7 @@ particles_anim_h_frames = 1
 particles_anim_v_frames = 1
 particles_anim_loop = 0
 albedo_color = Color( 1, 1, 1, 1 )
-albedo_texture = ExtResource( 2 )
+albedo_texture = ExtResource( 3 )
 metallic = 0.0
 metallic_specular = 0.5
 metallic_texture_channel = 0
@@ -132,7 +133,15 @@ size = Vector2( 1, 1 )
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Particles" type="Particles" parent="." index="0"]
+[node name="Timer" type="Timer" parent="." index="0"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = true
+script = ExtResource( 2 )
+
+[node name="Particles" type="Particles" parent="." index="1"]
 
 layers = 1
 material_override = null
@@ -160,5 +169,7 @@ process_material = SubResource( 5 )
 draw_passes = 1
 draw_pass_1 = SubResource( 7 )
 _sections_unfolded = [ "Draw Passes", "Process Material", "Time" ]
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 
 
