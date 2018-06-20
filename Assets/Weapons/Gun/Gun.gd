@@ -48,5 +48,4 @@ func shoot():
 		
 		var hitFX = hitFXscene.instance()
 		hitFX.translate(hit_point)
-		add_child(hitFX)
-		
+		get_tree().root.add_child(hitFX)

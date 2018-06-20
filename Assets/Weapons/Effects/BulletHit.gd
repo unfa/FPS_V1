@@ -6,6 +6,7 @@ extends Spatial
 
 func _ready():
 	print("Pow!")
+	$Particles.emitting = true
 
 #func _process(delta):
 #	# Called every frame. Delta is time since last frame.
