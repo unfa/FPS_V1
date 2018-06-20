@@ -43,7 +43,7 @@ func _input(event):
 				$Camera.rotation[0] = mouselook_pitch_limit
 
 func _process(delta):
-#	# Called every frame. Delta is time since last frame.
+	# Called every frame. Delta is time since last frame.
 #	# Update game logic here.
 	#print(Input.get_last_mouse_speed())
 	if health > 0:
