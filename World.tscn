@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://World.gd" type="Script" id=1]
 [ext_resource path="res://HUD.tscn" type="PackedScene" id=2]
@@ -123,6 +123,17 @@ propagation = 0.7
 interior = true
 compress = false
 
+[sub_resource type="Gradient" id=8]
+
+offsets = PoolRealArray( 0.00530504, 0.137931, 0.461538, 0.997347 )
+colors = PoolColorArray( 1, 0.762695, 0.0507812, 1, 0.996094, 0.608819, 0.233459, 1, 0.046875, 0.0398698, 0.0316772, 1, 0, 0, 0, 0 )
+
+[sub_resource type="GradientTexture" id=9]
+
+flags = 4
+gradient = SubResource( 8 )
+width = 256
+
 [sub_resource type="ParticlesMaterial" id=4]
 
 render_priority = 0
@@ -151,7 +162,7 @@ angle = 0.0
 angle_random = 1.0
 scale = 25.0
 scale_random = 0.5
-color = Color( 1, 1, 1, 1 )
+color_ramp = SubResource( 9 )
 hue_variation = 0.0
 hue_variation_random = 0.0
 anim_speed = 0.0
@@ -159,20 +170,20 @@ anim_speed_random = 0.0
 anim_offset = 0.0
 anim_offset_random = 0.0
 anim_loop = false
-_sections_unfolded = [ "Resource" ]
+_sections_unfolded = [ "Color", "Resource" ]
 
 [sub_resource type="SpatialMaterial" id=5]
 
 render_priority = 0
 flags_transparent = true
-flags_unshaded = false
+flags_unshaded = true
 flags_vertex_lighting = false
 flags_no_depth_test = false
 flags_use_point_size = false
 flags_world_triplanar = false
 flags_fixed_size = false
 flags_albedo_tex_force_srgb = false
-vertex_color_use_as_albedo = false
+vertex_color_use_as_albedo = true
 vertex_color_is_srgb = false
 params_diffuse_mode = 0
 params_specular_mode = 0
@@ -212,7 +223,7 @@ uv2_triplanar = false
 uv2_triplanar_sharpness = 1.0
 proximity_fade_enable = false
 distance_fade_enable = false
-_sections_unfolded = [ "Albedo", "Distance Fade", "Parameters", "Transmission" ]
+_sections_unfolded = [ "Albedo", "Distance Fade", "Flags", "Parameters", "Transmission" ]
 
 [sub_resource type="QuadMesh" id=6]
 
@@ -272,8 +283,6 @@ interior_ambient_contrib = 0.0
 
 [node name="Effects" type="Spatial" parent="Level" index="3"]
 
-editor/display_folded = true
-
 [node name="Particles" type="Particles" parent="Level/Effects" index="0"]
 
 transform = Transform( 1, 0, 0, 0, 0.766044, -0.642788, 0, 0.642788, 0.766044, 1, 1, -23 )
@@ -302,7 +311,7 @@ draw_order = 2
 process_material = SubResource( 4 )
 draw_passes = 1
 draw_pass_1 = SubResource( 6 )
-_sections_unfolded = [ "Draw Passes", "Process Material", "Time" ]
+_sections_unfolded = [ "Draw Passes", "Process Material" ]
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Level/Effects/Particles" index="0"]
 
@@ -386,8 +395,6 @@ editor/display_folded = false
 
 [node name="Areas" type="Spatial" parent="Level" index="5"]
 
-editor/display_folded = true
-
 [node name="Area" type="Area" parent="Level/Areas" index="0"]
 
 input_ray_pickable = false
@@ -417,10 +424,9 @@ _sections_unfolded = [ "Reverb Bus" ]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0 )
 shape = SubResource( 7 )
 disabled = false
+_sections_unfolded = [ "Transform" ]
 
 [node name="Ligths" type="Spatial" parent="Level" index="6"]
-
-editor/display_folded = true
 
 [node name="DirectionalLight" type="DirectionalLight" parent="Level/Ligths" index="0"]
 
@@ -467,7 +473,7 @@ shadow_bias = 0.15
 shadow_contact = 0.0
 shadow_reverse_cull_face = false
 editor_only = false
-omni_range = 15.0
+omni_range = 7.93539
 omni_attenuation = 1.0
 omni_shadow_mode = 1
 omni_shadow_detail = 1
@@ -490,7 +496,7 @@ shadow_bias = 0.15
 shadow_contact = 0.0
 shadow_reverse_cull_face = false
 editor_only = false
-omni_range = 40.0
+omni_range = 7.74579
 omni_attenuation = 1.0
 omni_shadow_mode = 1
 omni_shadow_detail = 1

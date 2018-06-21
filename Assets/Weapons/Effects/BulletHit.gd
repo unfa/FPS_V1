@@ -5,8 +5,10 @@ extends Spatial
 # var b = "textvar"
 
 func _ready():
-	print("Pow!")
-	$Particles.emitting = true
+	#print("Pow!")
+	$Sparks.emitting = true
+	$Smoke.emitting = true
+	$AnimationPlayer.play("Light")
 
 #func _process(delta):
 #	# Called every frame. Delta is time since last frame.
@@ -15,5 +17,5 @@ func _ready():
 
 
 func _on_Timer_timeout():
-	print("Deleted!")
+	#print("Deleted!")
 	queue_free()
