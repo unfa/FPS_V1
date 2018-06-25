@@ -23,7 +23,7 @@ tracks/0/keys = {
 "values": [ Color( 0.90625, 0.757873, 0.251343, 1 ), Color( 0, 0, 0, 1 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("MeshInstance/AudioStreamPlayer3D:playing")
+tracks/1/path = NodePath("Sounds/Shoot:playing")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -293,6 +293,7 @@ blend_times = [  ]
 
 [node name="MeshInstance" type="MeshInstance" parent="." index="1"]
 
+editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.52773, 1.072e-08 )
 layers = 2
 material_override = null
@@ -310,7 +311,6 @@ _sections_unfolded = [ "Transform", "material" ]
 
 [node name="MeshInstance2" type="MeshInstance" parent="MeshInstance" index="0"]
 
-editor/display_folded = true
 transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 0, 0.177453, 0.0734152 )
 layers = 2
 material_override = null
@@ -326,84 +326,10 @@ skeleton = NodePath("..")
 material/0 = SubResource( 3 )
 _sections_unfolded = [ "Geometry", "Transform", "material" ]
 
-[node name="MuzzleParticles" type="Particles" parent="MeshInstance/MeshInstance2" index="0"]
-
-transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, -0.458937, 7.47704e-08 )
-layers = 1
-material_override = null
-cast_shadow = 0
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
-emitting = false
-amount = 64
-lifetime = 0.06
-one_shot = true
-preprocess = 0.0
-speed_scale = 1.0
-explosiveness = 1.0
-randomness = 1.0
-fixed_fps = 0
-fract_delta = true
-visibility_aabb = AABB( -4, -4, -4, 8, 8, 8 )
-local_coords = false
-draw_order = 2
-process_material = SubResource( 8 )
-draw_passes = 1
-draw_pass_1 = SubResource( 10 )
-_sections_unfolded = [ "Draw Passes", "Drawing", "Process Material", "Time", "Transform" ]
-
-[node name="OmniLight" type="OmniLight" parent="MeshInstance/MeshInstance2/MuzzleParticles" index="0"]
-
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.14753e-07, 0.352173 )
-layers = 1
-light_color = Color( 0, 0, 0, 1 )
-light_energy = 5.0
-light_indirect_energy = 1.0
-light_negative = false
-light_specular = 0.5
-light_bake_mode = 1
-light_cull_mask = -1
-shadow_enabled = true
-shadow_color = Color( 0, 0, 0, 1 )
-shadow_bias = 0.15
-shadow_contact = 0.0
-shadow_reverse_cull_face = false
-editor_only = false
-omni_range = 25.0
-omni_attenuation = 1.0
-omni_shadow_mode = 1
-omni_shadow_detail = 1
-_sections_unfolded = [ "Editor", "Light", "Omni" ]
-
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="MeshInstance/MeshInstance2" index="1"]
-
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00528771, -0.0124103, -0.0267778 )
-stream = ExtResource( 3 )
-attenuation_model = 0
-unit_db = 0.0
-unit_size = 4.0
-max_db = 3.0
-pitch_scale = 1.0
-autoplay = false
-max_distance = 0.0
-out_of_range_mode = 0
-bus = "Master"
-area_mask = 1
-emission_angle_enabled = false
-emission_angle_degrees = 45.0
-emission_angle_filter_attenuation_db = -12.0
-attenuation_filter_cutoff_hz = 8000.0
-attenuation_filter_db = -24.0
-doppler_tracking = 0
-_sections_unfolded = [ "Attenuation Filter", "Doppler" ]
-
 [node name="MuzzleParticles" type="Particles" parent="MeshInstance" index="1"]
 
-transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, -0.458937, 7.47704e-08 )
+editor/display_folded = true
+transform = Transform( 0.999747, -7.33465e-09, -0.0225098, -0.0225098, -1.62838e-07, -0.999747, 3.66732e-09, 1, -1.62962e-07, -0.00199722, -0.458915, 7.47668e-08 )
 layers = 1
 material_override = null
 cast_shadow = 0
@@ -454,28 +380,6 @@ omni_shadow_mode = 1
 omni_shadow_detail = 1
 _sections_unfolded = [ "Editor", "Light", "Omni" ]
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="MeshInstance" index="2"]
-
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00528771, -0.0124103, -0.0267778 )
-stream = ExtResource( 3 )
-attenuation_model = 0
-unit_db = 0.0
-unit_size = 4.0
-max_db = 3.0
-pitch_scale = 1.0
-autoplay = false
-max_distance = 0.0
-out_of_range_mode = 0
-bus = "Master"
-area_mask = 1
-emission_angle_enabled = false
-emission_angle_degrees = 45.0
-emission_angle_filter_attenuation_db = -12.0
-attenuation_filter_cutoff_hz = 8000.0
-attenuation_filter_db = -24.0
-doppler_tracking = 0
-_sections_unfolded = [ "Attenuation Filter", "Doppler" ]
-
 [node name="ProjectileSpawner" type="Spatial" parent="." index="2"]
 
 transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, -1.14466, 1.11231e-07 )
@@ -488,5 +392,29 @@ exclude_parent = true
 cast_to = Vector3( 0, 0, 1000 )
 collision_mask = 1
 _sections_unfolded = [ "Transform" ]
+
+[node name="Sounds" type="Spatial" parent="." index="3"]
+
+[node name="Shoot" type="AudioStreamPlayer3D" parent="Sounds" index="0"]
+
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0.00528771, -1.10595, -0.0297472 )
+stream = ExtResource( 3 )
+attenuation_model = 0
+unit_db = 0.0
+unit_size = 4.0
+max_db = 3.0
+pitch_scale = 1.0
+autoplay = true
+max_distance = 0.0
+out_of_range_mode = 0
+bus = "Master"
+area_mask = 1
+emission_angle_enabled = false
+emission_angle_degrees = 45.0
+emission_angle_filter_attenuation_db = -12.0
+attenuation_filter_cutoff_hz = 8000.0
+attenuation_filter_db = -24.0
+doppler_tracking = 0
+_sections_unfolded = [ "Attenuation Filter", "Doppler" ]
 
 

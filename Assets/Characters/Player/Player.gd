@@ -13,12 +13,12 @@ export var air_control = 0.025
 export var ground_control = 0.5
 
 export var mouselook_speed = 400
-export var mouselook_pitch_limit = 1.4
+export var mouselook_pitch_limit = PI / 2
 
 var current_control = ground_control
 
 var walking = false
-var on_ground = false
+var on_ground = true
 
 # class member variables go here, for example:
 # var a = 2
@@ -63,10 +63,12 @@ func _process(delta):
 func _physics_process(delta):
 	
 	# are the player's feet touching the ground?
-	if $GroundArea.colliding <= 0:
-		on_ground = false
-	else:
+	
+	
+	if $Feet.is_colliding():
 		on_ground = true
+	else:
+		on_ground = false
 		
 	if on_ground:
 		current_control = ground_control
@@ -102,6 +104,8 @@ func _physics_process(delta):
 		# jump
 		if on_ground and Input.is_action_just_pressed("move_jump"):
 			movement.y = jump_velocity
+			$Sounds/Jump.stop()
+			$Sounds/Jump.play()
 	else: #if we're dead
 		# player should stop walking
 		movement.z = lerp(movement.z, 0, current_control)

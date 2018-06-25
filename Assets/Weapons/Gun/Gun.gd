@@ -23,6 +23,8 @@ func shoot():
 	if ready:
 		# play the shooting animation
 		$AnimationPlayer.play("Shoot")
+		#$Sounds/Shoot.stop()
+		#$Sounds/Shoot.play()
 		
 		# cast a ray to see if we hit anything
 		$ProjectileSpawner/RayCast.enabled = true
@@ -44,8 +46,7 @@ func shoot():
 		if hit_object is RigidBody:
 			hit_object.apply_impulse(hit_point, - (hit_normal * hit_force))
 			
-		# emit particles if we hit anything
-		
+		# emit particles if we hit something
 		var hitFX = hitFXscene.instance()
 		hitFX.translate(hit_point)
 		get_tree().root.add_child(hitFX)
