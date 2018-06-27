@@ -25,6 +25,15 @@ var on_ground_previous = on_ground
 # var a = 2
 # var b = "textvar"
 
+func footstep():
+	var sound = round(rand_range(0, 1)) 
+	
+	if sound == 0:
+		$"Sounds/Footsteps/footsteps-01".play()
+	elif sound == 1:
+		$"Sounds/Footsteps/footsteps-02".play()
+
+
 func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
@@ -77,7 +86,7 @@ func _physics_process(delta):
 	else:
 		current_control = air_control
 	
-	# deafutl to not walking
+	# deafult to not walking
 	walking = false
 	
 	# front/back walking
@@ -110,14 +119,21 @@ func _physics_process(delta):
 			$AnimationPlayer.play("Jump")
 			
 		# land
-		
 		if on_ground and not on_ground_previous:
 			$Sounds/Land.play()
+			
 			
 	else: #if we're dead
 		# player should stop walking
 		movement.z = lerp(movement.z, 0, current_control)
 		movement.x = lerp(movement.x, 0, current_control)
+
+	if walking and on_ground and $Sounds/Footsteps/Timer.is_stopped():
+		$Sounds/Footsteps/Timer.start()
+	elif not walking and not $Sounds/Footsteps/Timer.is_stopped():
+		$Sounds/Footsteps/Timer.stop()
+	elif not on_ground and not $Sounds/Footsteps/Timer.is_stopped():
+		$Sounds/Footsteps/Timer.stop() 
 		
 	
 	# gravity acceleration
@@ -146,3 +162,6 @@ func _physics_process(delta):
 		
 	#print($AnimationPlayer.is_playing())
 	
+
+func _on_Timer_timeout():
+	footstep()

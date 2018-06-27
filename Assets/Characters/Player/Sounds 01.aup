@@ -1,8 +1,8 @@
 <?xml version="1.0" standalone="no" ?>
 <!DOCTYPE project PUBLIC "-//audacityproject-1.3.0//DTD//EN" "http://audacity.sourceforge.net/xml/audacityproject-1.3.0.dtd" >
-<project xmlns="http://audacity.sourceforge.net/xml/" projname="Sounds 01_data" version="1.3.0" audacityversion="2.1.2" sel0="1.6007256236" sel1="1.7589115646" vpos="0" h="0.0000000000" zoom="689.0625000000" rate="48000.0" snapto="off" selectionformat="hh:mm:ss" frequencyformat="Hz" bandwidthformat="octaves">
+<project xmlns="http://audacity.sourceforge.net/xml/" projname="Sounds 01_data" version="1.3.0" audacityversion="2.1.2" sel0="4.8732879819" sel1="4.8732879819" vpos="0" h="4.1012244898" zoom="689.0625000000" rate="48000.0" snapto="off" selectionformat="hh:mm:ss" frequencyformat="Hz" bandwidthformat="octaves">
 	<tags/>
-	<wavetrack name="Audio Track" channel="2" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="1" rate="48000" gain="1.0" pan="0.0">
+	<wavetrack name="Audio Track" channel="2" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="48000" gain="1.0" pan="0.0">
 		<waveclip offset="0.00000000">
 			<sequence maxsamples="262144" sampleformat="262159" numsamples="116890">
 				<waveblock start="0">
@@ -15,5 +15,41 @@
 	<labeltrack name="Label Track" numlabels="2" height="73" minimized="0" isSelected="0">
 		<label t="0.0565986395" t1="0.4455328798" title="jump"/>
 		<label t="1.2538775510" t1="1.7589115646" title="land"/>
+	</labeltrack>
+	<wavetrack name="Audio Track" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" isSelected="1" rate="48000" gain="1.0" pan="0.0">
+		<waveclip offset="4.06350000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="761979">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000189.au" len="260144" min="-0.119022" max="0.11163" rms="0.002893"/>
+				</waveblock>
+				<waveblock start="260144">
+					<simpleblockfile filename="e0000344.au" len="262144" min="-0.252504" max="0.236676" rms="0.00468"/>
+				</waveblock>
+				<waveblock start="522288">
+					<simpleblockfile filename="e000088d.au" len="239691" min="-0.030992" max="0.033968" rms="0.00207"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Audio Track" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="1" rate="48000" gain="1.0" pan="0.0">
+		<waveclip offset="4.06350000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="761979">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000bea.au" len="260144" min="-0.12434" max="0.126395" rms="0.003044"/>
+				</waveblock>
+				<waveblock start="260144">
+					<simpleblockfile filename="e000088c.au" len="262144" min="-0.258861" max="0.270516" rms="0.005661"/>
+				</waveblock>
+				<waveblock start="522288">
+					<simpleblockfile filename="e00007e6.au" len="239691" min="-0.039235" max="0.045933" rms="0.002261"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<labeltrack name="Label Track" numlabels="2" height="73" minimized="0" isSelected="0">
+		<label t="4.9088435374" t1="4.9792290249" title="footsteps-01"/>
+		<label t="9.6986848073" t1="9.8191383220" title="footsteps-02"/>
 	</labeltrack>
 </project>
