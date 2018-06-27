@@ -1,0 +1,21 @@
+<?xml version="1.0" standalone="no" ?>
+<!DOCTYPE project PUBLIC "-//audacityproject-1.3.0//DTD//EN" "http://audacity.sourceforge.net/xml/audacityproject-1.3.0.dtd" >
+<project xmlns="http://audacity.sourceforge.net/xml/" projname="Hits 01_data" version="1.3.0" audacityversion="2.1.2" sel0="2.8193480726" sel1="2.9840436508" vpos="0" h="0.0000000000" zoom="172.2656250000" rate="48000.0" snapto="off" selectionformat="hh:mm:ss" frequencyformat="Hz" bandwidthformat="octaves">
+	<tags/>
+	<wavetrack name="Audio Track" channel="2" linked="0" mute="0" solo="0" height="343" minimized="0" isSelected="1" rate="48000" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="226304">
+				<waveblock start="0">
+					<simpleblockfile filename="e000094f.au" len="226304" min="-0.891251" max="0.877215" rms="0.042528"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<labeltrack name="Label Track" numlabels="4" height="73" minimized="0" isSelected="1">
+		<label t="0.3270748299" t1="0.4774603175" title="hit-01"/>
+		<label t="0.8633548753" t1="0.9541043084" title="hit-02"/>
+		<label t="2.3051247166" t1="2.4170521542" title="hit-03"/>
+		<label t="2.8193480726" t1="2.9840436508" title="hit-04"/>
+	</labeltrack>
+</project>

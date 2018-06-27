@@ -24,7 +24,7 @@ func shoot():
 		# play the shooting animation
 		$AnimationPlayer.play("Shoot")
 		#$Sounds/Shoot.stop()
-		#$Sounds/Shoot.play()
+		$Sounds/Shoot.play()
 		
 		# cast a ray to see if we hit anything
 		$ProjectileSpawner/RayCast.enabled = true

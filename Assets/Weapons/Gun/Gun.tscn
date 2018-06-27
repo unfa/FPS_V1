@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Assets/Weapons/Gun/Gun.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Objects/Effects/Smoke/Smoke 01/Smoke 01.png" type="Texture" id=2]
-[ext_resource path="res://Assets/Weapons/Gun/Sounds/Shoot 01.ogg" type="AudioStream" id=3]
+[ext_resource path="res://Assets/Weapons/Gun/Sounds/Shoot 01.wav" type="AudioStream" id=3]
 
 [sub_resource type="Animation" id=1]
 
@@ -23,60 +23,48 @@ tracks/0/keys = {
 "values": [ Color( 0.90625, 0.757873, 0.251343, 1 ), Color( 0, 0, 0, 1 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sounds/Shoot:playing")
+tracks/1/path = NodePath("MeshInstance:translation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ true, false ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("MeshInstance:translation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
 "times": PoolRealArray( 0, 0.05, 0.4 ),
 "transitions": PoolRealArray( 1, 0.531265, 2.00078 ),
 "update": 0,
 "values": [ Vector3( 0, -0.52773, 1.072e-08 ), Vector3( 0, -0.347837, -1.85883e-08 ), Vector3( 0, -0.52773, 1.072e-08 ) ]
 }
-tracks/3/type = "value"
-tracks/3/path = NodePath("MeshInstance:rotation_degrees")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
+tracks/2/type = "value"
+tracks/2/path = NodePath("MeshInstance:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
 "times": PoolRealArray( 0, 0.05, 0.1, 0.2 ),
 "transitions": PoolRealArray( 1, 0.133148, 1, 1.68245 ),
 "update": 0,
 "values": [ Vector3( 0, 0, 0 ), Vector3( 18, 0, 0 ), Vector3( 12, 0, 0 ), Vector3( 0, 0, 0 ) ]
 }
-tracks/4/type = "value"
-tracks/4/path = NodePath("MeshInstance/MuzzleParticles:emitting")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
+tracks/3/type = "value"
+tracks/3/path = NodePath("MeshInstance/MuzzleParticles:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
 "times": PoolRealArray( 0, 0.05 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ true, false ]
 }
-tracks/5/type = "value"
-tracks/5/path = NodePath(".:ready")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
+tracks/4/type = "value"
+tracks/4/path = NodePath(".:ready")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
 "times": PoolRealArray( 0, 0.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
@@ -404,7 +392,7 @@ unit_db = 0.0
 unit_size = 4.0
 max_db = 3.0
 pitch_scale = 1.0
-autoplay = true
+autoplay = false
 max_distance = 0.0
 out_of_range_mode = 0
 bus = "Master"

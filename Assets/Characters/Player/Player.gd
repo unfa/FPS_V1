@@ -104,8 +104,9 @@ func _physics_process(delta):
 		# jump
 		if on_ground and Input.is_action_just_pressed("move_jump"):
 			movement.y = jump_velocity
-			$Sounds/Jump.stop()
 			$Sounds/Jump.play()
+			$AnimationPlayer.play("Jump")
+			
 	else: #if we're dead
 		# player should stop walking
 		movement.z = lerp(movement.z, 0, current_control)

@@ -110,7 +110,7 @@ adjustment_contrast = 1.0
 adjustment_saturation = 1.0
 _sections_unfolded = [ "Background" ]
 
-[node name="Game" type="Spatial"]
+[node name="Game" type="Spatial" index="0"]
 
 script = ExtResource( 1 )
 
@@ -125,6 +125,10 @@ editor/display_folded = true
 [node name="Map" type="Spatial" parent="." index="1"]
 
 [node name="Scene Root" parent="Map" index="0" instance=ExtResource( 3 )]
+
+[node name="Cube" parent="Map/Scene Root" index="0"]
+
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0.0357428, 4.76837e-07, -0.0354919 )
 
 [node name="StaticBody" type="StaticBody" parent="Map/Scene Root/Cube" index="0"]
 
