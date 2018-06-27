@@ -19,6 +19,7 @@ var current_control = ground_control
 
 var walking = false
 var on_ground = true
+var on_ground_previous = on_ground
 
 # class member variables go here, for example:
 # var a = 2
@@ -64,6 +65,7 @@ func _physics_process(delta):
 	
 	# are the player's feet touching the ground?
 	
+	on_ground_previous = on_ground
 	
 	if $Feet.is_colliding():
 		on_ground = true
@@ -106,6 +108,11 @@ func _physics_process(delta):
 			movement.y = jump_velocity
 			$Sounds/Jump.play()
 			$AnimationPlayer.play("Jump")
+			
+		# land
+		
+		if on_ground and not on_ground_previous:
+			$Sounds/Land.play()
 			
 	else: #if we're dead
 		# player should stop walking
