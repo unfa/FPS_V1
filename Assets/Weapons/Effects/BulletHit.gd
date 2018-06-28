@@ -10,15 +10,15 @@ func _ready():
 	$Smoke.emitting = true
 	$AnimationPlayer.play("Light")
 	
-	var sound = round(rand_range(0, 4)) 
+	var sound = round(rand_range(0, 3)) 
 	
-	if sound == 1:
+	if sound == 0:
 		$"Sounds/hit-01".play()
-	elif sound == 2:
+	elif sound == 1:
 		$"Sounds/hit-02".play()
-	elif sound == 3:
+	elif sound == 2:
 		$"Sounds/hit-03".play()
-	elif sound == 4:
+	elif sound == 3:
 		$"Sounds/hit-04".play()
 
 
