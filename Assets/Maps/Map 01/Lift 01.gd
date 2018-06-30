@@ -4,27 +4,27 @@ extends Spatial
 # var a = 2
 # var b = "textvar"
 
+onready var ap = $AnimationPlayer
+
 func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
 	pass
 
-#func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass
+func _process(delta):
+	if ap.is_playing():
+		print(ap.current_animation_position)
 
 
 func _on_Trigger_body_entered(body):
 	
 	# check for collision with a player
 	if body.name == "Player":
-		#print ("Player detected!")
-		$AnimationPlayer.play("Action")
+		ap.playback_speed = 1
+		ap.play("Action")
 
 
 func _on_Trigger_body_exited(body):
 	if body.name == "Player":
-		#print ("Player detected!")
-		$AnimationPlayer.play_backwards("Action")
+		ap.playback_speed = -1
 		

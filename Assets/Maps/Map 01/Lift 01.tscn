@@ -37,7 +37,7 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, 12, 0 ) ]
 }
 
-[node name="Lift 01" type="Spatial" index="0"]
+[node name="Lift 01" type="Spatial"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.533333, 0 )
 script = ExtResource( 1 )
@@ -114,7 +114,7 @@ __meta__ = {
 root_node = NodePath("..")
 autoplay = ""
 playback_process_mode = 1
-playback_default_blend_time = 1.0
+playback_default_blend_time = 0.0
 playback_speed = 1.0
 anims/Action = SubResource( 4 )
 blend_times = [  ]

@@ -281,7 +281,6 @@ blend_times = [  ]
 
 [node name="MeshInstance" type="MeshInstance" parent="." index="1"]
 
-editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.52773, 1.072e-08 )
 layers = 2
 material_override = null
@@ -351,10 +350,10 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.14753e-07, 0.352173 )
 layers = 1
 light_color = Color( 0, 0, 0, 1 )
 light_energy = 5.0
-light_indirect_energy = 1.0
+light_indirect_energy = 0.0
 light_negative = false
 light_specular = 0.5
-light_bake_mode = 1
+light_bake_mode = 0
 light_cull_mask = -1
 shadow_enabled = true
 shadow_color = Color( 0, 0, 0, 1 )
