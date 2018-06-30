@@ -20,7 +20,6 @@ func _process(delta):
 
 
 func _on_Trigger_body_entered(body):
-	
 	# check for collision with a player entering lift
 	if body.name == "Player":
 		if not ap.is_playing():
@@ -32,7 +31,6 @@ func _on_Trigger_body_entered(body):
 
 func _on_Trigger_body_exited(body):
 	# check for collision with a player exiting lift
-	
 	if body.name == "Player":
 		if ap.is_playing(): # if the player exited before the Acton was finished
 			ap.playback_speed = -ap.playback_speed # reverse the direction
