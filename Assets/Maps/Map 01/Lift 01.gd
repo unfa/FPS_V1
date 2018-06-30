@@ -15,6 +15,7 @@ func _process(delta):
 	if ap.is_playing():
 		print("animation position: ", ap.current_animation_position)
 		print("animation speed: ", ap.playback_speed)
+		print("animation speed: ", ap.playback_speed)
 		
 
 
@@ -36,5 +37,5 @@ func _on_Trigger_body_exited(body):
 		if ap.is_playing(): # if the player exited before the Acton was finished
 			ap.playback_speed = -ap.playback_speed # reverse the direction
 		else:
-			ap.play("Action",0 , -1, true) # otherwise - start playback backwards
+			ap.play_backwards() # otherwise - start playback backwards
 		
