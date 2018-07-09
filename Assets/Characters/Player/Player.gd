@@ -20,6 +20,7 @@ var current_control = ground_control
 var walking = false
 var on_ground = true
 var on_ground_previous = on_ground
+var ground
 
 # class member variables go here, for example:
 # var a = 2
@@ -80,6 +81,7 @@ func _physics_process(delta):
 		on_ground = true
 	else:
 		on_ground = false
+		ground = null
 		
 	if on_ground:
 		current_control = ground_control
@@ -99,7 +101,7 @@ func _physics_process(delta):
 			walking = true
 		else:
 			movement.z = lerp(movement.z, 0, current_control)
-			
+			pass
 		
 		
 		#left/right strafing
@@ -112,17 +114,19 @@ func _physics_process(delta):
 		else:
 			movement.x = lerp(movement.x, 0, current_control)
 		
+		if on_ground:
+			movement.y = 0
+		
 		# jump
 		if on_ground and Input.is_action_just_pressed("move_jump"):
-			movement.y = jump_velocity
+			movement.y += jump_velocity
 			$Sounds/Jump.play()
 			$AnimationPlayer.play("Jump")
 			
 		# land
 		if on_ground and not on_ground_previous:
 			$Sounds/Land.play()
-			
-			
+		
 	else: #if we're dead
 		# player should stop walking
 		movement.z = lerp(movement.z, 0, current_control)

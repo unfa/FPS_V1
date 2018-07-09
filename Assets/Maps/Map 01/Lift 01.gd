@@ -9,7 +9,7 @@ onready var ap = $AnimationPlayer
 func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
-	pass
+	set_process(false)
 
 func _process(delta):
 	if ap.is_playing():
