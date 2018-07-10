@@ -12,7 +12,7 @@ func _process(delta):
 		if self.visible == false:
 			self.visible = true
 			get_tree().paused = true
-			Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		else:
 			self.visible = false
 			get_tree().paused = false

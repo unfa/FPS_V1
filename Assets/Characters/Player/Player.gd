@@ -79,6 +79,7 @@ func _physics_process(delta):
 	
 	if $Feet.is_colliding():
 		on_ground = true
+		ground = $Feet.get_collider()
 	else:
 		on_ground = false
 		ground = null
@@ -116,6 +117,11 @@ func _physics_process(delta):
 		
 		if on_ground:
 			movement.y = 0
+			print(get_floor_velocity())
+			# gravity acceleration
+		else:
+			movement.y -= gravity_acceleration * delta
+			walking = false
 		
 		# jump
 		if on_ground and Input.is_action_just_pressed("move_jump"):
@@ -138,13 +144,6 @@ func _physics_process(delta):
 		$Sounds/Footsteps/Timer.stop()
 	elif not on_ground and not $Sounds/Footsteps/Timer.is_stopped():
 		$Sounds/Footsteps/Timer.stop() 
-		
-	
-	# gravity acceleration
-	if not on_ground:
-		movement.y -= gravity_acceleration * delta
-		walking = false
-	
 	
 	
 	# make sure we don't cross terminal velocity when falling

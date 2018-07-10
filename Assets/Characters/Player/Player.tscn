@@ -123,6 +123,7 @@ mouselook_pitch_limit = 1.5708
 
 [node name="Camera" type="Camera" parent="." index="0"]
 
+editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.54498, 0 )
 keep_aspect = 1
 cull_mask = 1048575
@@ -176,6 +177,8 @@ _sections_unfolded = [ "Light", "Shadow", "Spot" ]
 
 [node name="Sounds" type="Spatial" parent="." index="1"]
 
+editor/display_folded = true
+
 [node name="Jump" type="AudioStreamPlayer3D" parent="Sounds" index="0"]
 
 stream = ExtResource( 4 )
@@ -217,6 +220,8 @@ attenuation_filter_db = -24.0
 doppler_tracking = 0
 
 [node name="Footsteps" type="Spatial" parent="Sounds" index="2"]
+
+editor/display_folded = true
 
 [node name="footsteps-01" type="AudioStreamPlayer3D" parent="Sounds/Footsteps" index="0"]
 
