@@ -1,0 +1,90 @@
+= unfa's FPS story
+
+It's the future. Humanity has long colonised mars, developed feasible interstellar travel technology and lots of cool stuff, like a 3-button computer mouse with no LED-s.
+
+:numbered:
+
+== Introduction
+
+.Following is a wider context of the game's setting and Player's role
+
+Now humanity is working on creating colonies in different solar systems in the galaxy - one such colony, named Fakós (Greek: "Lens") an numbered HFC-A14 (Human Far Colony, sector A, number 14) has been established in June, year 2301. The mission was established primary as an precise observatory for other galaxies and solar systems. The crew of the mission comprised o 47 people, main crew of engineers and scientists was consisting of 8 people, the rest taking care of the buildings, infrastructure, plant growth, oxygen and water subsystems etc. All was going well, earth was expecting some first images of the Milky Way from the Fakós in a few weeks. But these have never arrived.
+
+Suddenly in February 2305 all communication with the far colony has been lost. The only broadcast that is still being received - is a daily ping signal, that has been started when the colony was founded. This means that the core energy and emergency system of the colony is operational at least at some level, however for some reason the crew was unable to communicate anything else with the outside world. Probable causes are a computer system breakdown, energy crisis or environmental difficulties, or a mutiny.
+
+An emergency mission was sent to Fakos, you are a part of the 30-people crew. You have been prepared to restore the colony to a fully operational state, regardless of the current situation.
+
+After a few good months of cryogenic travel you have arrived in the far solar system. No communications could be established with the colony, even from the orbit. However - soon after you've reached the orbit, something blew up, and the spacecraft was force to land on the planet in a big rush, without any preparations being made.
+
+unfa's tip: it was aliens shooting them down, so they won't have a chance to attack.
+
+The ship approaches a semi-secure landing near the Fakós structures, when something else has blew up, injuring a few from the crew. The rescue mission has had a very bad landing.
+
+You wake up from a deep sleep in your cell. Your body hurts like you've been beaten up yesterday or something. You reach for the painkillers. Then you hear a human scream. You're scared. What is going on? I was expecting to wake up before landing, why am I late? You walk out of your cell to see what's going on with the ship. it doesn't look good.
+
+Blah blah blah - you go to pick up your weapon, and prepare to fend off whoever attacked this colony.
+It's time to kick some ass.
+
+You drop from the ship into the Fakós base - which is in terrible condition, all rusted and devastated with rotting human corpses laying here and there. You recognize suits of the colony team. Whatever happened here didn't happen yesterday.
+
+.Act 1: The Surface
+You exit a crashed ship and discover a shredded colony, and fight aliens who invaded it and killed your colleague.
+
+.Act 2: The Underground
+You discover the aliens have an outpost built under the human structures - where they still reside in big amounts. Kill em' all!
+
+.Act 3: The Core
+You get the the center of the alien base and travel to their home planet through a portal to kick their ass or die!
+
+
+== Game Script
+.What follows is a description of all game events level after level. This is a template o build the actual maps for the game upon
+
+=== Map 1
+
+.The first room
+You open your eyes in a small room. Your head is spinning and the surroundings are thrown around, like someone has smashed them in rage a few hours ago. You're laying on the floor of your cell. You're slowly standing up. Then you realize the floor is not holding level. The whole ship must be resting at a slight angle.
+
+You're really not feeling well, you need to seek some medical help.
+
+You look around seeking if you can find anything useful. You find some painkillers laying around on the floor among other things. That makes you feel a little better. You walk out of the cell, looking for some answers and help.
+
+.The first corridor
+When you walk out of the door (that was broken and didn't open fully) the first thing you see is a tight corridor, flooded with trash with some blood on the wall, and flickering lights. You hear some low buzzing sounds, some alarms beeping, some steam hissing.
+
+You walk further, you see doors to other cells, but they are all shut and you don't have a key to open them. One of the doors have a hole in them, sparking with electricity - you try to take a look inside, but the room behind the door is dark and you don't want to stick your face close to shorting wires.
+
+.The first weapon
+While walking other corridors, you've found a broken emergency locker with a fire extinguisher and a small axe. As you're not feeling particularly safe around here with nothing but your bare hands - you take that axe.
+
+.The first use for a weapon
+
+You encounter a doorway that is made of glass and won't open - the power must have been cut. However - one of the glass panes was damaged and broken, and you've realized - that you can make your way though that door with your axe.
+
+.The first piece of context
+
+You enter a bridge room. You immediately see a few bodies on the fool. There are also many monitor screens, control panels, chairs, instruments and windows showing you the location of the ship. A foreign planet is awaiting you outside. Many monitors are off or broken, some show static, some just flicker frantically, but some display some useful information. You can pick out that you're on a human ship sent to a place called HFC-A14. You also see many warnings about ship subsystems not functioning. You see some stats about the crew - 27 people are dead, 6 are off the radar, and you seem to be the only one alive on this ship right now. Communication subsystems are non-functional. You have no way of calling fro help from earth. Even if you could they'd take months to get here.
+
+You walk around to find more information and you see an unfinished message from the ship's captain saying that "an unknown force has stroke the ship down from the orbit. preparing for an emergency landing. This might be the last lo(...)". Looks like the captain didn't have time to finish this log entry.
+
+.Scattered notes
+
+As you walk around the ship you find a few bodies - their owners have PDAs with log entries that let you find out a few important things.
+
+You were sent here to find out what's going on with a human colony, that was not heard from for months. You find out you have some weapon supplies on the ship, though some are probably destroyed.
+
+You also find some traces of the lost 6 members of the ship - some walkways were clearly cleaned up by humans - you also found some footprints around.
+
+You've found a cell of another crew member - he's left a note saying that the ship has crashed on the planet surface and most of the crew didn't make it from the impact. He wrote that there was a loud explosion audible before the ship has reached the planet's surface - he thinks someone has shot them down to make sure they won't survive the landing. Still - he and a few others did. They have taken what they could and went to the human colony. That's the only hope of surviving on this planet, the ship is unstable and they cannot stay here. At any time the structure of the ship could collapse, or the main generator could fail and cook them alive. The only way to survive is going to the outpost.
+
+.Leaving the wreck
+
+When you found out there's hope of meeting your friends on this planet - you've tried to locate some goods and quickly found your way out of the ship. You've spotted numerous footstep trails, first wandering around, but then unifying in a certain direction.
+
+.The first enemy
+
+As you walk through the rocks and sands you hear some clicking noises, you turn around and you spot a big, nasty hybrid of a spider and a scorpion, yellow and hard to notice against the sand background. It walks at up you - you smashed it's head with the axe, before it stung you. Then you've heard a few more. Time to hurry, this place isn't safe. Why the hell did they chose to build a colony here, anyway? Ah yes - the view of the galaxy, and the unusual minerals. Right. Too bad we're not going to enjoy any of that.
+
+.Reaching the colony
+
+Not long after you walk the rocky valleys and dunes you've reached a place where you can see the colony - a concrete complex, sparkled with yellow dust and sunshine. It looks oddly dirty from outside, unlike any colonies you've been to before. "I hope they have hot water and soap" - you mumble to yourself, while hiking you way to the complex.
