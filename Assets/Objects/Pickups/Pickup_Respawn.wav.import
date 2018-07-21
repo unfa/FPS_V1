@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Pickup_Respawn.wav-02b10d650fbf7ac00bc09216f6344c2b.sample"
+
+[deps]
+
+source_file="res://Assets/Objects/Pickups/Pickup_Respawn.wav"
+dest_files=[ "res://.import/Pickup_Respawn.wav-02b10d650fbf7ac00bc09216f6344c2b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
