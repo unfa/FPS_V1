@@ -31,10 +31,14 @@ func damage(hp):
 	health -= hp
 
 func heal(hp):
-	health += hp
-	if health > health_max:
-		health = health_max
-
+	if health == health_max:
+		return false
+	elif health < health_max:
+		health += hp
+		if health > health_max:
+			health = health_max
+		return true
+		
 func footstep():
 	var sound = round(rand_range(0, 1)) 
 	

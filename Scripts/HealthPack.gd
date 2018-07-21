@@ -22,5 +22,5 @@ func _process(delta):
 
 func _on_Area_body_entered(body):
 	if body.has_method('heal'):
-		body.heal(health)
-		self.queue_free()
+		if body.heal(health):
+			self.queue_free()
