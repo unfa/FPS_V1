@@ -6,7 +6,7 @@ extends Spatial
 
 export var health = 25 # how much health will be restored on pickup?
 export var respawn = false # should this pickup respawn?
-export var respawn_time = 3 # how many seconds to wait before respawning
+export var respawn_time = 30 # how many seconds to wait before respawning
 
 var active = true # is the health pack active?
 
@@ -26,6 +26,7 @@ func _on_Area_body_entered(body):
 			$PickupSound.play() # play the pickup sound
 			self.hide() # hide the node so it seems to have disappeare immediately
 			active = false # make it inactive so no more heath will be give to whoever tries to pick it up next
+			$Area.monitoring = false
 			
 			if respawn: # if this pickup should respawn
 				$RespawnTimer.start()
@@ -41,3 +42,4 @@ func _on_RespawnTimer_timeout():
 	active = true
 	$RespawnSound.play()
 	$RespawnTimer.stop()
+	$Area.monitoring = true

@@ -110,7 +110,7 @@ script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 health = 25
 respawn = false
-respawn_time = 3
+respawn_time = 30
 
 [node name="MeshInstance" type="MeshInstance" parent="." index="0"]
 
@@ -181,7 +181,6 @@ _sections_unfolded = [ "Attenuation Filter" ]
 
 [node name="Area" type="Area" parent="." index="4"]
 
-editor/display_folded = true
 input_ray_pickable = false
 input_capture_on_drag = false
 space_override = 0
@@ -193,7 +192,7 @@ linear_damp = 0.1
 angular_damp = 1.0
 priority = 0.0
 monitoring = true
-monitorable = true
+monitorable = false
 collision_layer = 1
 collision_mask = 1
 audio_bus_override = false
