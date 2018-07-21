@@ -3,6 +3,7 @@ extends KinematicBody
 var movement = Vector3()
 
 export var health = 100
+export var health_max = 100
 var previous_health = health
 export var walk_speed = 350
 export var run_speed = 750
@@ -25,6 +26,14 @@ var ground
 # class member variables go here, for example:
 # var a = 2
 # var b = "textvar"
+
+func damage(hp):
+	health -= hp
+
+func heal(hp):
+	health += hp
+	if health > health_max:
+		health = health_max
 
 func footstep():
 	var sound = round(rand_range(0, 1)) 
